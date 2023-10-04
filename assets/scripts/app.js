@@ -17,9 +17,17 @@ function add(){
     const initialResult =currentResult;
     currentResult += entredNumber;
     createAndWriteOutput('+', initialResult, entredNumber)
-    logEntries.push(entredNumber);
+    const logEntry ={
+        operation:'ADD',
+        prevResult:initialResult,
+        number: entredNumber,
+        result: currentResult
+    };
+    logEntries.push(logEntry);
     console.log(logEntries);
 }
+    
+   
 //çıkarma işlemi
 function subtract(){
     const entredNumber = getUserNumberInput();
