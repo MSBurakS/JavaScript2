@@ -26,25 +26,32 @@ function writeToLog(
         };
         logEntries.push(logEntry);
         console.log(logEntries);
-    }
-    
-//toplama işlemi
-function add(){
+}
+function calculateResult(calculationType){
     const entredNumber = getUserNumberInput();
     const initialResult =currentResult;
-    currentResult += entredNumber;
-    createAndWriteOutput('+', initialResult, entredNumber);
-    writeToLog('ADD',initialResult,entredNumber,currentResult);
+    let mathOperator;
+    if (calculationType === 'ADD') {
+        currentResult += entredNumber;
+        mathOperator = '+';
+    } else {
+        currentResult -= entredNumber;
+        mathOperator = '-';
+    }
+    
+    createAndWriteOutput(mathOperator, initialResult, entredNumber);
+    writeToLog(calculationType,initialResult,entredNumber,currentResult);
+ }
+//toplama işlemi
+function add(){
+    calculateResult('ADD');
 }
    
 //çıkarma işlemi
 function subtract(){
-    const entredNumber = getUserNumberInput();
-    const initialResult =currentResult;
-    currentResult -= entredNumber;
-    createAndWriteOutput('-', initialResult, entredNumber)
-    writeToLog('SUBTRACT',initialResult,entredNumber,currentResult);
+    calculateResult('SUBTRACT');
 }
+
 
 //çarpma işlemi
 function multiply(){
