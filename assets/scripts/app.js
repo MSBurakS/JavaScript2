@@ -34,9 +34,15 @@ function calculateResult(calculationType){
     if (calculationType === 'ADD') {
         currentResult += entredNumber;
         mathOperator = '+';
-    } else {
+    } else if(calculationType ==='SUBTRACT') {
         currentResult -= entredNumber;
         mathOperator = '-';
+    } else if(calculationType ==='MULTIPLY'){
+        currentResult *= entredNumber;
+        mathOperator = '*';
+    } else if(calculationType ==='DIVIDE'){
+        currentResult /= entredNumber;
+        mathOperator = '/';
     }
     
     createAndWriteOutput(mathOperator, initialResult, entredNumber);
@@ -55,19 +61,11 @@ function subtract(){
 
 //çarpma işlemi
 function multiply(){
-    const entredNumber = getUserNumberInput();
-    const initialResult =currentResult;
-    currentResult *= entredNumber;
-    createAndWriteOutput('*', initialResult, entredNumber)
-    writeToLog('MULTIPLY',initialResult,entredNumber,currentResult);
+    calculateResult('MULTIPLY');
 }
 
 function divide(){
-    const entredNumber = getUserNumberInput();
-    const initialResult =currentResult;
-    currentResult = currentResult / entredNumber;
-    createAndWriteOutput('/', initialResult, entredNumber)
-    writeToLog('DIVIDE',initialResult,entredNumber,currentResult);
+    calculateResult('DIVIDE');
 }
 
 addBtn.addEventListener('click',add);
