@@ -33,7 +33,8 @@ function calculateResult(calculationType){
     if(calculationType !== 'ADD' && 
     calculationType !=='SUBTRACT' && 
     calculationType !=='MULTIPLY' &&
-    calculationType !=='DIVIDE'){
+    calculationType !=='DIVIDE' ||
+    entredNumber === 0 ){
     return;
     }
 
