@@ -27,7 +27,20 @@ function writeToLog(
         logEntries.push(logEntry);
         console.log(logEntries);
 }
+
 function calculateResult(calculationType){
+
+    if(calculationType !== 'ADD' && 
+    calculationType !=='SUBTRACT' && 
+    calculationType !=='MULTIPLY' &&
+    calculationType !=='DIVIDE'){
+    return;
+    }
+
+    //if(calculationType === 'ADD' ||
+    //calculationType === 'SUBTRACT' ||
+    //calculationType === 'MULTIPLY' ||
+    //calculationType === 'DIVIDE'){
     const entredNumber = getUserNumberInput();
     const initialResult =currentResult;
     let mathOperator;
@@ -44,9 +57,14 @@ function calculateResult(calculationType){
         currentResult /= entredNumber;
         mathOperator = '/';
     }
+
+   
     
     createAndWriteOutput(mathOperator, initialResult, entredNumber);
     writeToLog(calculationType,initialResult,entredNumber,currentResult);
+    //}
+
+    
  }
 //toplama işlemi
 function add(){
